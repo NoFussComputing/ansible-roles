@@ -1,12 +1,11 @@
-#variables:
-#    Release_TAG: Publish-$CI_COMMIT_SHORT_SHA
 
 stages:
-    - lint
+    - validation
     - sync
 
 include:
-  - local: .gitlab-ci-lint.yml
+  - local: CI/ansible/.gitlab-ci.yml
+  - local: CI/commitizen/.gitlab-ci.yml
 
 Github (Push --mirror):
     image: alpine:latest
@@ -26,6 +25,4 @@ Github (Push --mirror):
       - if: '$CI_COMMIT_BRANCH == "master"'
       - if: '$CI_COMMIT_BRANCH == "development"'
         when: always
-#      - when: always
-
 
