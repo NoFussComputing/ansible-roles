@@ -32,6 +32,8 @@ your yaml playbook here
 
 -->
 
+<!-- provide a summary here -->
+
 <details>
 <summary>:clipboard: example playbook</summary>
 
