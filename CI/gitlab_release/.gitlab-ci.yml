@@ -19,7 +19,8 @@ Gitlab:
         - git push --set-upstream origin $CI_COMMIT_BRANCH
     script:
         - RELEASE_VERSION_CURRENT=$(cz -n cz_nfc version --project)
-        - RELEASE_CHANGELOG=$(cz -n cz_nfc bump --changelog --changelog-to-stdout)
+        - cz -n cz_nfc changelog
+        - RELEASE_CHANGELOG=$(cz -n cz_nfc bump --changelog-to-stdout)
         - RELEASE_VERSION_NEW=$(cz -n cz_nfc version --project)
         - RELEASE_TAG=v$RELEASE_VERSION_NEW
         - git tag -d $RELEASE_TAG
